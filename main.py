@@ -20,13 +20,17 @@ while True:
 
 # Verificar Acerto
     if chute in palavraSorteada:
-        Correção = []
-        for i in range(len(palavraSorteada)):
-            if chute == palavraSorteada[i]:
-                Correção.append(chute)
-            else:
-                Correção.append(palavraEscondida[i])
-        palavraEscondida = ''.join(Correção)
+
+        palavraEscondida = ''.join(chute if chute == palavraSorteada[indice] else palavraEscondida[indice] for indice in range(len(palavraSorteada)))
+
+#        Correção = []
+#        for i in range(len(palavraSorteada)):
+#            if chute == palavraSorteada[i]:
+#                Correção.append(chute)
+#            else:
+#                Correção.append(palavraEscondida[i])
+#        palavraEscondida = ''.join(Correção)
+
     else:
         TentativasMax -= 1
         print(f"Letra incorreta. Você tem mais {TentativasMax} chances!")
